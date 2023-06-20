@@ -1,21 +1,25 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:ressengaer_app/AddBuilding/add_building.dart';
 import 'package:ressengaer_app/screen/searchapartment.dart';
 
 import '../constants.dart';
 import '../provider/ApiService.dart';
 
 class SelectCity extends StatelessWidget {
-  const SelectCity({Key? key}) : super(key: key);
+  var previosScreen;
+
+  var countryName;
+
+   SelectCity({required this.previosScreen,required this.countryName}) ;
 
   @override
   Widget build(BuildContext context) {
     return Consumer<ApiService>(
       builder: (context, value, child) {
-        value.getAllVetEvents();
         return StreamBuilder<QuerySnapshot>(
-            stream: context.read<ApiService>().getCity(),
+            stream: context.read<ApiService>().getCity(countryName),
             builder:
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               if (snapshot.hasError) {
@@ -52,7 +56,7 @@ class SelectCity extends StatelessWidget {
                   child: Scaffold(
                     backgroundColor: Colors.white,
                     body: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 30),
+                      margin: const EdgeInsets.symmetric(horizontal: 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -77,11 +81,11 @@ class SelectCity extends StatelessWidget {
                               SizedBox(
                                 width: 40,
                               ),
-                              Image(
-                                image: AssetImage('assets/images/1.png'),
-                                height: 40,
-                                width: 40,
-                              ),
+                              // Image(
+                              //   image: AssetImage('assets/images/1.png'),
+                              //   height: 40,
+                              //   width: 40,
+                              // ),
                             ],
                           ),
                           const SizedBox(
@@ -90,26 +94,48 @@ class SelectCity extends StatelessWidget {
                           Expanded(
                             child: ListView.builder(
                               itemCount: snapshot.data!.docs.length,
-                              itemBuilder: (BuildContext context,index){
-                                return  Column(
+                              itemBuilder: (BuildContext context, index) {
+                                return Column(
                                   children: [
                                     RawMaterialButton(
                                       onPressed: () {
-                                        kNavigator(context, SearchApartment());
+                                        if(previosScreen=='confirm'){
+                                          context.read<ApiService>().updateCity(
+                                            context,
+                                            snapshot.data!.docs[index]
+                                                .get('city'),
+                                          );
+                                        }
+                                        else if(previosScreen=='profile'){
+                                          String val= snapshot.data!.docs[index].get('city');
+                                          context.read<ApiService>().updateCity(
+                                            context,
+                                            snapshot.data!.docs[index]
+                                                .get('city'),
+                                          );
+                                          value.setCity(val);
+                                          kNavigator(context, AddBuilding());
+                                          print(value.country);
+                                          print(value.city);
+                                        }
+
                                       },
                                       child: Row(
                                         children: [
-                                          Text(snapshot.data!.docs[index].get('city'),
-                                              style:
-                                              TextStyle(color: kLightPink, fontSize: 18)),
+                                          Text(
+                                              snapshot.data!.docs[index]
+                                                  .get('city'),
+                                              style: const TextStyle(
+                                                  color: kLightPink,
+                                                  fontSize: 18)),
                                         ],
                                       ),
                                     ),
-                                    Divider(color: kLightPink, thickness: 2),
+                                    const Divider(color: kLightPink, thickness: 2),
                                   ],
                                 );
                               },
-                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              padding: const EdgeInsets.symmetric(horizontal: 10),
                             ),
                           )
                         ],
@@ -125,7 +151,5 @@ class SelectCity extends StatelessWidget {
             });
       },
     );
-
-
   }
 }

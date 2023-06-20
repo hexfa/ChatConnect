@@ -36,7 +36,7 @@ class Confirm extends StatelessWidget implements ApiStatusLogin {
               if (snapshot.hasData) {
                 return VerifyEmailPage();
               } else {
-                return Notices();
+                return SelectCountry(previusScreen: 'confirm',);
               }
             },
           ),
@@ -70,7 +70,7 @@ class Confirm extends StatelessWidget implements ApiStatusLogin {
     //Box b = Hive.box('vet');
     //b.put('vet', false);
     kNavigatorBack(context);
-    kNavigator(context, Confirm());
+    kNavigator(context, SelectCountry(previusScreen: 'confirm'));
   }
 
   @override
@@ -127,7 +127,7 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
 
   @override
   Widget build(BuildContext context) => isEmailVerified
-      ? Notices()
+      ? SelectCountry(previusScreen: 'confirm',)
       : Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,

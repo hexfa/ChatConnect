@@ -6,13 +6,15 @@ import '../provider/ApiService.dart';
 import 'city.dart';
 
 class SelectCountry extends StatelessWidget {
-  const SelectCountry({Key? key}) : super(key: key);
+  String previusScreen;
+
+   SelectCountry({required this.previusScreen}) ;
 
   @override
   Widget build(BuildContext context) {
     return Consumer<ApiService>(
       builder: (context, value, child) {
-        value.getAllVetEvents();
+        //value.getAllVetEvents();
         return StreamBuilder<QuerySnapshot>(
             stream: context.read<ApiService>().getCountry(),
             builder:
@@ -51,7 +53,7 @@ class SelectCountry extends StatelessWidget {
                   child: Scaffold(
                     backgroundColor: Colors.white,
                     body: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 30),
+                      margin: const EdgeInsets.symmetric(horizontal: 30),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -82,7 +84,25 @@ class SelectCountry extends StatelessWidget {
                                   children: [
                                     RawMaterialButton(
                                       onPressed: () {
-                                        kNavigator(context, SelectCity());
+                                       if(previusScreen=='confirm'){
+                                         context.read<ApiService>().updateCountry(
+                                           context,
+                                           snapshot.data!.docs[index]
+                                               .get('country'),
+                                         );
+                                       }
+                                       else if(previusScreen=='profile'){
+                                         String val=  snapshot.data!.docs[index]
+                                             .get('country');
+                                         value.setCountry(val);
+                                         context.read<ApiService>().updateCountry(
+                                           context,
+                                           snapshot.data!.docs[index]
+                                               .get('country'),
+                                         );
+                                         kNavigator(context, SelectCity(previosScreen: previusScreen, countryName: snapshot.data!.docs[index]
+                                             .get('country'),));
+                                       }
                                       },
                                       child: Row(
                                         children: [
@@ -92,21 +112,21 @@ class SelectCountry extends StatelessWidget {
                                             height: 40,
                                             width: 40,
                                           ),
-                                          SizedBox(
+                                          const SizedBox(
                                             width: 80,
                                           ),
                                           Text(snapshot.data!.docs[index].get('country'),
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   color: kLightPink,
                                                   fontSize: 18)),
                                         ],
                                       ),
                                     ),
-                                    Divider(color: kLightPink, thickness: 2),
+                                    const Divider(color: kLightPink, thickness: 2),
                                   ],
                                 );
                               },
-                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              padding: const EdgeInsets.symmetric(horizontal: 10),
                             ),
                           )
                         ],

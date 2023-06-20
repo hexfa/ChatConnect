@@ -71,6 +71,7 @@ class SignUp extends StatelessWidget implements ApiStatusLogin {
                   passkey: 1,
                   validateController: value.password1Controller.text,
                   vKey: 'pass',
+
                 ),
 
                 MyTextFiled(
@@ -163,7 +164,7 @@ class SignUp extends StatelessWidget implements ApiStatusLogin {
   //bool push = false;
   @override
   void login() {
-    kNavigatorBack(context);
+
     kNavigator(context,  Confirm());
 
   }

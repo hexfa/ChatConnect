@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ressengaer_app/Authentication/confirm.dart';
 import 'package:ressengaer_app/Authentication/login.dart';
 import 'package:ressengaer_app/Authentication/sign_up.dart';
 import 'package:ressengaer_app/constants.dart';
+import 'package:ressengaer_app/screen/notices.dart';
 import 'package:ressengaer_app/widgets/button.dart';
 import 'package:ressengaer_app/widgets/text_fileds.dart';
 
@@ -130,7 +130,7 @@ class Login extends StatelessWidget implements ApiStatusLogin {
     //Box b = Hive.box('vet');
     //b.put('vet', false);
     kNavigatorBack(context);
-    kNavigator(context,  Confirm());
+    kNavigator(context,  Notices());
   }
 
   @override
