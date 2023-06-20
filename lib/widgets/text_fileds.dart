@@ -33,7 +33,7 @@ class _MyTextFiledState extends State<MyTextFiled> {
 
               prefixIcon: Icon(widget.icon,color: Colors.white,size: 40,),
               hintText: widget.text,
-              hintStyle: const TextStyle(color: Colors.white),
+              hintStyle: const TextStyle(color: Colors.white,fontFamily: 'Mont'),
               enabledBorder: const UnderlineInputBorder(
                 borderSide: BorderSide(color: Colors.white),
               ),

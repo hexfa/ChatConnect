@@ -32,6 +32,7 @@ class SearchApartment extends StatelessWidget {
                     style: TextStyle(
                         fontWeight: FontWeight.w900,
                         color: kLightPink,
+                        fontFamily: 'Mont',
                         fontSize: 25),
                   ),
                 ],
@@ -58,7 +59,8 @@ class SearchApartment extends StatelessWidget {
                     ),
                     contentPadding: EdgeInsets.only(bottom: 10,right: 25),
                     hintText: 'search',
-                    hintStyle: TextStyle(color: Colors.white),
+
+                    hintStyle: TextStyle(color: Colors.white,fontFamily: 'Mont'),
                     border: InputBorder.none,
                   ),
                 ),
@@ -80,7 +82,7 @@ class SearchApartment extends StatelessWidget {
                             children: const [
                               Text('Aliway (Randburg)',
                                   style:
-                                      TextStyle(color: kLightPink, fontSize: 18)),
+                                      TextStyle(color: kLightPink, fontSize: 18,fontFamily: 'Mont')),
                             ],
                           ),
                         ),

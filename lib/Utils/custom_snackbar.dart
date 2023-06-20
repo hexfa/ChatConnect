@@ -31,7 +31,7 @@ class ModeSnackBar {
    }
 
     SnackBar snackBar = SnackBar(
-      content: Text(text ,),
+      content: Text(text ,style: TextStyle(fontFamily: 'Mont'),),
       backgroundColor: backGroundColor,
       duration: const Duration(seconds: 2),
       elevation: 2,

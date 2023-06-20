@@ -2,6 +2,8 @@ import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ressengaer_app/screen/notices.dart';
+import 'package:ressengaer_app/screen/seling_items.dart';
+import 'package:ressengaer_app/screen/services.dart';
 
 import '../Authentication/confirm.dart';
 import '../constants.dart';
@@ -11,9 +13,10 @@ mYBottomNavigationBar(context) {
     style: Style(),
     child: ConvexAppBar(
       color: kMyPink,
-      activeColor: kMyPink,
+     activeColor: kMyPink,
       height: 50,
       top: 0,
+
       //curveSize: 100,
       backgroundColor: Colors.white,
       items: const [
@@ -24,11 +27,17 @@ mYBottomNavigationBar(context) {
         TabItem(icon: Icons.message, title: ''),
 
       ],
-      initialActiveIndex: 0,
+      //initialActiveIndex: 0,
       //optional, default as 0
       onTap: (int i) {
         if (i == 0) {
           kNavigator(context, Notices());
+        }
+        else  if (i == 1) {
+            kNavigator(context, SellingItem());
+        }
+        else  if (i == 2) {
+          kNavigator(context, Services());
         }
       },
     ),

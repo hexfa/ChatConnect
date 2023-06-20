@@ -15,7 +15,7 @@ class SignUp extends StatelessWidget implements ApiStatusLogin {
 
   showSnackBar(String text) {
     SnackBar snackBar = SnackBar(
-      content: Text(text),
+      content: Text(text,style: TextStyle(fontFamily: 'Mont'),),
     );
 
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
@@ -80,6 +80,7 @@ class SignUp extends StatelessWidget implements ApiStatusLogin {
                   textAlign: TextAlign.center,
 
                   style: TextStyle(
+                    fontFamily: 'Mont',
                     height: 1.5,
                     color: Colors.white,
                   ),
@@ -91,7 +92,7 @@ class SignUp extends StatelessWidget implements ApiStatusLogin {
                     kMyPink, context, 0.08, 0.63, 'Sign Up', Colors.white, () {
                     value.signUpUser();
                   // kNavigator(context, Confirm());
-                }),
+                },30.0),
 
 
 
@@ -102,7 +103,7 @@ class SignUp extends StatelessWidget implements ApiStatusLogin {
                       kNavigator(context, Login());
                     },
                       child: const Text(  'Already have an account ?\n Login',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
+                        style: TextStyle(color: Colors.white, fontSize: 16,fontFamily: 'Mont'),
                         textAlign: TextAlign.center,),
 
                     ),

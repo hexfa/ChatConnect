@@ -62,13 +62,14 @@ class Login extends StatelessWidget implements ApiStatusLogin {
                               roundedButton(
                                   kMyPink, context, 0.08, 0.63, 'Login', Colors.white, () {
                                 value.signIn();
-                              }),
+                              },30.0),
                               SizedBox(
                                 height: MediaQuery.of(context).size.height * 0.03,
                               ),
                               const Text(
                                 'Forget Password ?',
                                 style: TextStyle(
+                                  fontFamily: 'Mont',
                                   color: Colors.white,
                                 ),
                               ),
@@ -82,7 +83,7 @@ class Login extends StatelessWidget implements ApiStatusLogin {
                                     kNavigator(context, SignUp());
                                   },
                                     child: const Text(  'Don\'t have an account ?\n Register',
-                                      style: TextStyle(color: Colors.white, fontSize: 16),
+                                      style: TextStyle(color: Colors.white, fontSize: 16,fontFamily: 'Mont'),
                                       textAlign: TextAlign.center,),
 
                                   ),

@@ -261,6 +261,10 @@ class ApiService extends ChangeNotifier {
     return fs.collection('pets').doc(myUser).collection('pet').doc(petId).collection(mode).snapshots();
 
   }
+  Stream<QuerySnapshot> getCountry(){
+    return fs.collection('country').snapshots();
+
+  }
   Stream<QuerySnapshot> getAllEvents(){
     return fs.collection('tips').snapshots();
 

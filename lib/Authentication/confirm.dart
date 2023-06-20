@@ -50,7 +50,7 @@ class Confirm extends StatelessWidget {
                 roundedButton(
                     kMyPink, context, 0.08, 0.63, 'Confirm', Colors.white, () {
                     kNavigator(context, SelectCountry());
-                }),
+                },30.0),
 
               ],
             ),

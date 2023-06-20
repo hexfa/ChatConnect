@@ -29,24 +29,26 @@ class LoginOrSignup extends StatelessWidget {
                   Colors.white, context, 0.08, 0.63, 'Sign Up', kMyPink, ()
               {
                 kNavigator(context, SignUp());
-              }
+              },30.0
                   ),
               SizedBox(height: MediaQuery.of(context).size.height*0.03,),
               const Text(
                 'Already have a Ressenger account?',style: TextStyle(
+                fontFamily: 'Mont',
                 color: Colors.white,
               ),),
               roundedButton(
                   kMyPink, context, 0.08, 0.63, 'Log In', Colors.white, ()
               {
                     kNavigator(context, Login());
-              }
+              },30.0
               ),
               Center(
                 child: Container(
                        margin: EdgeInsets.all(45),
                   child: const Text(
                     'By using this app you agree to Ressenger\'s Terms of Use and Privacy Policy' ,style: TextStyle(
+                    fontFamily: 'Mont',
                     color: Colors.white,
 
                   ),
