@@ -10,6 +10,7 @@ import 'package:provider/provider.dart';
 import 'package:ressengaer_app/provider/ApiService.dart';
 import 'package:ressengaer_app/widgets/fb_messaging.dart';
 import 'package:ressengaer_app/widgets/local_notification_service.dart';
+import 'package:ressengaer_app/widgets/my_bottom_navigation_bar.dart';
 
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   LocalNotificationService.display(message);
@@ -130,7 +131,7 @@ class SplashScreenState extends State<SplashScreen> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => (loggedIn) ? Notices() : LoginOrSignup(),
+          builder: (context) => (loggedIn) ? NewBottomNavigationBar() : LoginOrSignup(),
         ),
       );
     });

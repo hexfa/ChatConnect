@@ -70,7 +70,7 @@ class Notices extends StatelessWidget implements ApiStatusLogin {
             )
           ],
         ),
-        bottomNavigationBar: mYBottomNavigationBar(context),
+        //bottomNavigationBar: mYBottomNavigationBar(context),
         body:    FutureBuilder<
             DocumentSnapshot>(
           future: users
