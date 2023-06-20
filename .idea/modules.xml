@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ChatConnect.iml" filepath="$PROJECT_DIR$/.idea/modules/ChatConnect.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ChatConnect.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ChatConnect.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ChatConnect.app.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ChatConnect.app.androidTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ChatConnect.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ChatConnect.app.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ChatConnect.app.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ChatConnect.app.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/ressenger_app.iml" filepath="$PROJECT_DIR$/.idea/ressenger_app.iml" />
     </modules>
   </component>
 </project>

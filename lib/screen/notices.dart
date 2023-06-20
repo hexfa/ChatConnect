@@ -7,6 +7,10 @@ import 'package:ressengaer_app/constants.dart';
 import 'package:ressengaer_app/screen/searchapartment.dart';
 import 'package:ressengaer_app/widgets/my_bottom_navigation_bar.dart';
 
+import 'classifieds.dart';
+import 'detailclassifieds.dart';
+import 'detailproperty.dart';
+
 class Notices extends StatelessWidget {
   const Notices({Key? key}) : super(key: key);
 
@@ -96,6 +100,9 @@ class Notices extends StatelessWidget {
                   ),
                 ),
                 const Divider(color: Colors.grey, thickness: 2),
+                // ElevatedButton(onPressed: (){
+                //   kNavigator(context, ClassiFieds());
+                // }, child: const Text('hhhhhh'))
               ],
             ),
           )

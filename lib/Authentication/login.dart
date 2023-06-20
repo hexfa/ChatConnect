@@ -45,7 +45,7 @@ class Login extends StatelessWidget implements ApiStatusLogin {
                               MyTextFiled(
                                 text: '            email address',
                                 icon: Icons.email,
-                                controller: value.emailController,
+                                controller: value.emailController, vKey: 'loginEmail', validateController: value.emailController.text,
                               ),
                               SizedBox(
                                 height: MediaQuery.of(context).size.height * 0.03,
@@ -54,13 +54,16 @@ class Login extends StatelessWidget implements ApiStatusLogin {
                                 text: '               Password',
                                 icon: Icons.lock,
                                 controller: value.password1Controller,
-                                passkey: 1,
+                                passkey: 1, vKey: 'LoginPass', validateController: value.password1Controller.text,
                               ),
                               SizedBox(
                                 height: MediaQuery.of(context).size.height * 0.05,
                               ),
                               roundedButton(
                                   kMyPink, context, 0.08, 0.63, 'Login', Colors.white, () {
+                                Provider.of<ApiService>(
+                                    context,
+                                    listen: false).notifyListeners();
                                 value.signIn();
                               },30.0),
                               SizedBox(
@@ -127,7 +130,7 @@ class Login extends StatelessWidget implements ApiStatusLogin {
     //Box b = Hive.box('vet');
     //b.put('vet', false);
     kNavigatorBack(context);
-    kNavigator(context,  const Confirm());
+    kNavigator(context,  Confirm());
   }
 
   @override

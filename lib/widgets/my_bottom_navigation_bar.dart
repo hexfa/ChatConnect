@@ -7,6 +7,7 @@ import 'package:ressengaer_app/screen/services.dart';
 
 import '../Authentication/confirm.dart';
 import '../constants.dart';
+import '../screen/classifieds.dart';
 
 mYBottomNavigationBar(context) {
   return StyleProvider(
@@ -34,7 +35,7 @@ mYBottomNavigationBar(context) {
           kNavigator(context, Notices());
         }
         else  if (i == 1) {
-            kNavigator(context, SellingItem());
+            kNavigator(context, ClassiFieds());
         }
         else  if (i == 2) {
           kNavigator(context, Services());

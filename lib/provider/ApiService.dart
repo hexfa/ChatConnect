@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -58,6 +59,7 @@ class ApiService extends ChangeNotifier {
   String othersName='';
 
   bool loadingAuth = false;
+  bool isEmailVerified =false;
 
   late ApiStatusLogin apiStatus;
   late UploadStatus uploadStatus;
@@ -263,6 +265,10 @@ class ApiService extends ChangeNotifier {
   }
   Stream<QuerySnapshot> getCountry(){
     return fs.collection('country').snapshots();
+
+  }
+  Stream<QuerySnapshot> getCity(){
+    return fs.collection('city').snapshots();
 
   }
   Stream<QuerySnapshot> getAllEvents(){
@@ -748,12 +754,12 @@ class ApiService extends ChangeNotifier {
     // return fs.collection('location').doc('Veterinary_establishments').collection('markers').snapshots();
     return fs.collection('location').get();
   }
-  Future<QuerySnapshot> getCity(String city,String location){
-    if(city != 'todo'){
-      return fs.collection('location').where('category', isEqualTo: location).where('city',isEqualTo: city).get();
-    }
-    return fs.collection('location').get();
-  }
+  // Future<QuerySnapshot> getCity(String city,String location){
+  //   if(city != 'todo'){
+  //     return fs.collection('location').where('category', isEqualTo: location).where('city',isEqualTo: city).get();
+  //   }
+  //   return fs.collection('location').get();
+  // }
   Stream<QuerySnapshot> getcitytips(String city){
     if(city != 'todo'){
       return fs.collection('tips').where('city',isEqualTo: city).snapshots();
@@ -995,6 +1001,8 @@ class ApiService extends ChangeNotifier {
   }
 
 
+
+
   signIn() async {
     setLoading(true);
     String email = emailController.text;
@@ -1020,6 +1028,7 @@ class ApiService extends ChangeNotifier {
         }
       }).onError((error, stackTrace) {
         if (error.toString().contains('wrong-password')) {
+
           apiStatus.inputWrong();
         } else {
           apiStatus.error();

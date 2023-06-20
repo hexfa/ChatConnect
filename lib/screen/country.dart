@@ -78,7 +78,6 @@ class SelectCountry extends StatelessWidget {
                             child: ListView.builder(
                               itemCount: snapshot.data!.docs.length,
                               itemBuilder: (BuildContext context,index){
-                                print(snapshot.data!.docs[index].get('image'));
                                 return Column(
                                   children: [
                                     RawMaterialButton(

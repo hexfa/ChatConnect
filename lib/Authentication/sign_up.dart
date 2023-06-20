@@ -53,17 +53,24 @@ class SignUp extends StatelessWidget implements ApiStatusLogin {
                   text: '               full name',
                   icon: Icons.supervisor_account_sharp,
                   controller: value.fullNameController,
+                  validateController: value.fullNameController.text,
+                  vKey: 'name',
+
                 ),
                 MyTextFiled(
                   text: '            email address',
                   icon: Icons.email,
                   controller: value.emailController,
+                  validateController: value.emailController.text,
+                  vKey: 'email',
                 ),
                 MyTextFiled(
                   text: '                password',
                   icon: Icons.lock,
                   controller: value.password1Controller,
                   passkey: 1,
+                  validateController: value.password1Controller.text,
+                  vKey: 'pass',
                 ),
 
                 MyTextFiled(
@@ -71,6 +78,9 @@ class SignUp extends StatelessWidget implements ApiStatusLogin {
                   icon: Icons.lock,
                   controller: value.password2Controller,
                   passkey: 1,
+                  validateController: value.password2Controller.text,
+                  vKey: 'pass2',
+                  pass1: value.password1Controller.text,
                 ),
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.05,
@@ -90,6 +100,10 @@ class SignUp extends StatelessWidget implements ApiStatusLogin {
                 ),
                 roundedButton(
                     kMyPink, context, 0.08, 0.63, 'Sign Up', Colors.white, () {
+                  Provider.of<ApiService>(
+                      context,
+                      listen: false).notifyListeners();
+                      print(value.password2Controller.text);
                     value.signUpUser();
                   // kNavigator(context, Confirm());
                 },30.0),
@@ -134,8 +148,7 @@ class SignUp extends StatelessWidget implements ApiStatusLogin {
 
   @override
   void inputEmpty() {
-    ModeSnackBar.show(
-        context, 'fill all filed', SnackBarMode.warning);
+
   }
 
   @override
@@ -151,13 +164,19 @@ class SignUp extends StatelessWidget implements ApiStatusLogin {
   @override
   void login() {
     kNavigatorBack(context);
-    kNavigator(context,  const Confirm());
+    kNavigator(context,  Confirm());
 
   }
 
   @override
   void passwordWeak() {
+
     ModeSnackBar.show(context, 'password is weak',
         SnackBarMode.warning);
   }
+
+
 }
+
+
+
