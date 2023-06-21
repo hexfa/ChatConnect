@@ -6,11 +6,9 @@ in real-time. It provides a simple and intuitive interface for seamless communic
 ## Features
 
 - User registration: Users can create an account or log in with their existing credentials.
-- Real-time messaging: Send and receive messages instantly.
 - Contacts list: View and manage a list of contacts.
 - Group chats: Create and participate in group conversations.
 - Message notifications: Receive notifications for new messages.
-- Image sharing: Share images with contacts.
 - Message search: Search for specific messages or conversations.
 
 
