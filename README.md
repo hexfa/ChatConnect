@@ -23,13 +23,15 @@ in real-time. It provides a simple and intuitive interface for seamless communic
 ## Lets Start 
 
 Clone this repository and import it into your Android IDE
-bash
-https://github.com/hexfa/ChatConnect.git
+```bash
+  https://github.com/hexfa/ChatConnect.git
+  ```
 ## Resources 
 
 - #### Remote API
-  bash
-  'https://fcm.googleapis.com/fcm/send'
+  ```bash
+  https://fcm.googleapis.com/fcm/send
+  ```
   
 
 ### Prerequisites
